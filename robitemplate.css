@@ -18,6 +18,35 @@ img {
   color: #454545 !important;
 }
 
+.paper-link {
+  color: black;
+  font-weight: bold;
+}
+
+#about {
+  max-width: 800px;
+  width: 90%;
+  text-align: left;
+  display: inline-block;
+}body {
+  font-size: 1.2rem !important;
+}
+
+ul {
+  text-align: left;
+  display: inline-block;
+}
+
+img {
+  max-width: 500px;
+  width: 90%;
+  padding-bottom: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem !important;
+}
+
 #about {
   max-width: 800px;
   width: 90%;
