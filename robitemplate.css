@@ -1,0 +1,39 @@
+body {
+  font-size: 1.2rem !important;
+}
+
+ul {
+  text-align: left;
+  display: inline-block;
+}
+
+img {
+  max-width: 500px;
+  width: 90%;
+  padding-bottom: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem !important;
+}
+
+#about {
+  max-width: 800px;
+  width: 90%;
+  text-align: left;
+  display: inline-block;
+}
+
+#publications {
+  max-width: 800px;
+  width: 90%;
+}
+
+#contact {
+  max-width: 800px;
+  width: 90%;
+}
+
+#scroll-padding {
+  height: 95vh;
+}
