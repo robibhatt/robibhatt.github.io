@@ -1,13 +1,5 @@
-.spacer {
-    height: 3rem;
-}
-
-.bibbase_amazon {
-    display: none;
-}
-
 body {
-  font-size: 1.2rem !important;
+  font-size: 2rem !important;
 }
 
 ul {
@@ -22,7 +14,8 @@ img {
 }
 
 .navbar-brand {
-  font-size: 1.5rem !important;
+  font-size: 1.3em !important;
+  color: #454545 !important;
 }
 
 #about {
