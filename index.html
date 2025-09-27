@@ -13,9 +13,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <center>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container py-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <a class="navbar-brand" href="#">Robi Bhattacharjee</a>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav">
@@ -35,32 +34,34 @@
         </div>
     </nav>
 
-  <br>
-    <img src="robi_headshot.jpeg"/>
-    <br>
-    <div id="about">
-      <p>
-        I'm currently a chubbybubble at the Univeristy of Tubingen supervised by Ulrike von Luxburg. Previously, I completed my Phd at UC San Diego where I was fortunate to be co-advised by Kamalika Chaudhuri and Sanjoy Dasgupta. I'm broadly interested in various theoretical topics that fall under the umbrella of Trustworthy Machine Learning. Recently, I've been interested in studying basic problems in explainability. I've previously worked in adversarial robustness as well as online k-means clustering. I also like math, in which I receieved a B.S. from MIT in 2016. 
-      </p>
-
+    <div class="index-layout">
+      <div class="index-image-column">
+        <img src="robi_headshot.jpeg" alt="Robi Bhattacharjee" class="index-image" />
+      </div>
+      <div class="index-content-column">
+        <div id="about" class="mb-4">
+          <p>
+            I'm currently a chubbybubble at the Univeristy of Tubingen supervised by Ulrike von Luxburg. Previously, I completed my Phd at UC San Diego where I was fortunate to be co-advised by Kamalika Chaudhuri and Sanjoy Dasgupta. I'm broadly interested in various theoretical topics that fall under the umbrella of Trustworthy Machine Learning. Recently, I've been interested in studying basic problems in explainability. I've previously worked in adversarial robustness as well as online k-means clustering. I also like math, in which I receieved a B.S. from MIT in 2016.
+          </p>
+        </div>
+        <div id="publications" class="mb-4">
+          <h2>Publications</h2>
+          <p>
+            Looking for my research papers? Visit the
+            <a href="publications.html">publications page</a>
+            for a complete list of preprints and published work.
+          </p>
+        </div>
+        <div id="contact" class="mb-4">
+          <h2>Contact</h2>
+          Email: rcbhatta at eng.ucsd.edu <br>
+          <a href="https://scholar.google.com/citations?user=zB23BxYAAAAJ&hl=en">Google Scholar</a> <br>
+          <a href="cv.pdf">CV</a>
+        </div>
+      </div>
     </div>
-    <div id="publications">
-      <h2>Publications</h2>
-      <p>
-        Looking for my research papers? Visit the
-        <a href="publications.html">publications page</a>
-        for a complete list of preprints and published work.
-      </p>
-    </div>
-    <div id="contact">
-      <h2>Contact</h2>
-      Email: rcbhatta at eng.ucsd.edu <br>
-      <a href="https://scholar.google.com/citations?user=zB23BxYAAAAJ&hl=en">Google Scholar</a> <br>
-      <a href="cv.pdf">CV</a>      
-    </div>
-    <div id="scroll-padding">
-    </div>
-  </center>
+    <div id="scroll-padding"></div>
+  </div>
 
 </body>
 
