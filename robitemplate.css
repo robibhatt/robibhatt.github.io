@@ -208,3 +208,117 @@ img {
     text-align: left;
   }
 }
+
+.cv-page {
+  font-size: 1.05rem;
+}
+
+.cv-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.cv-name {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.cv-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  color: #333;
+}
+
+.cv-meta p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cv-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cv-meta a:hover,
+.cv-meta a:focus {
+  text-decoration: underline;
+}
+
+.cv-section {
+  margin-bottom: 2.75rem;
+}
+
+.cv-section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cv-entry {
+  margin-bottom: 1.75rem;
+}
+
+.cv-entry:last-child {
+  margin-bottom: 0;
+}
+
+.cv-entry-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cv-entry-title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.cv-entry-role {
+  margin: 0.2rem 0 0;
+  font-style: italic;
+  color: #555;
+}
+
+.cv-entry-meta {
+  font-weight: 600;
+  color: #333;
+}
+
+.cv-entry-description {
+  margin: 0.5rem 0 0;
+}
+
+.cv-list {
+  list-style: disc;
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #333;
+}
+
+.cv-list li {
+  margin-bottom: 0.75rem;
+}
+
+.cv-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 575.98px) {
+  .cv-entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cv-entry-meta {
+    text-align: left;
+  }
+
+  .cv-meta {
+    gap: 1.5rem;
+  }
+}
