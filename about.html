@@ -52,11 +52,11 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       background: transparent;
       width: 100%;
-      max-width: 960px;
-      height: 45vh;
+      max-width: none;
+      height: 60vh;
       min-height: 260px;
-      margin: 0 auto 2.5rem;
-      padding: 0.75rem 1rem;
+      margin: 0 0 2.5rem;
+      padding: 0.75rem 0;
     }
 
     .carousel__track {
@@ -83,11 +83,13 @@
       justify-content: center;
       background: transparent;
       border-radius: 10px;
+      overflow: hidden;
     }
 
     .carousel__slide img {
-      width: 100%;
       height: 100%;
+      width: auto;
+      max-width: 100%;
       display: block;
       object-fit: contain;
       object-position: center;
@@ -144,7 +146,7 @@
       width: 0.75rem;
       height: 0.75rem;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.55);
+      background: #d0d5db;
       border: 0;
       padding: 0;
       cursor: pointer;
@@ -152,9 +154,9 @@
     }
 
     .carousel__dot[aria-current="true"] {
-      background: #1f3c88;
+      background: #7cb5ff;
       transform: scale(1.2);
-      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 4px rgba(124, 181, 255, 0.35);
     }
 
     .carousel__dot:focus-visible {
