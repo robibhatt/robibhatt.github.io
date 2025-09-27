@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - Robi Bhattacharjee</title>
+  <link rel="stylesheet" href="robitemplate.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style>
     :root {
       color-scheme: light dark;
@@ -25,15 +27,8 @@
     }
 
     header {
-      background: #1f3c88;
-      color: #fff;
-      padding: 1.5rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: clamp(1.8rem, 2.5vw + 1rem, 2.8rem);
+      padding: 0 1rem;
+      background: transparent;
     }
 
     main {
@@ -50,6 +45,8 @@
     }
 
     .carousel {
+      --visible-slides: 1;
+      --slide-gap: 1rem;
       position: relative;
       overflow: hidden;
       border-radius: 12px;
@@ -57,28 +54,40 @@
       background: #000;
       width: 100vw;
       height: 25vh;
-      min-height: 200px;
-      margin: 0 calc(50% - 50vw) 2rem;
+      min-height: 220px;
+      margin: 0 calc(50% - 50vw) 2.5rem;
+      padding: 0.75rem 0;
     }
 
     .carousel__track {
       display: flex;
+      gap: var(--slide-gap);
       transition: transform 0.6s ease;
       will-change: transform;
       height: 100%;
+      padding: 0 var(--slide-gap);
     }
 
     .carousel__slide {
-      min-width: 100%;
+      flex: 0 0 calc(
+        (100% - (var(--visible-slides) - 1) * var(--slide-gap)) /
+        var(--visible-slides)
+      );
       position: relative;
       height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border-radius: 10px;
     }
 
     .carousel__slide img {
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
     }
 
     .carousel__button {
@@ -156,6 +165,18 @@
       color: #333;
     }
 
+    @media (min-width: 640px) {
+      .carousel {
+        --visible-slides: 2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .carousel {
+        --visible-slides: 3;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .carousel__track {
         transition: none;
@@ -165,7 +186,25 @@
 </head>
 <body>
   <header>
-    <h1>Robi Bhattacharjee</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Primary navigation">
+      <a class="navbar-brand" href="index.html">Robi Bhattacharjee</a>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="publications.html">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="jiujitsu.html">Jiujitsu</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
   <main>
     <section class="carousel" aria-label="Featured moments of Robi Bhattacharjee">
@@ -200,6 +239,14 @@
     <div class="content">
       <p>Hi, this is a paragraph about me, Robi Bhattacharjee.</p>
     </div>
+    <div class="content" id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: rcbhatta at eng.ucsd.edu<br>
+        <a href="https://scholar.google.com/citations?user=zB23BxYAAAAJ&amp;hl=en">Google Scholar</a><br>
+        <a href="cv.pdf">CV</a>
+      </p>
+    </div>
   </main>
 
   <script>
@@ -215,40 +262,124 @@
       let isTransitioning = false;
       let touchStartX = null;
       let touchStartTime = 0;
+      const state = {
+        visibleSlides: 1,
+        pageCount: totalSlides,
+      };
 
-      function createDots() {
-        slides.forEach((_, index) => {
-          const dot = document.createElement('button');
-          dot.className = 'carousel__dot';
-          dot.type = 'button';
-          dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-          dot.setAttribute('role', 'tab');
-          dot.dataset.index = index;
-          dotsNav.appendChild(dot);
+      if (!totalSlides) {
+        prevButton.hidden = true;
+        nextButton.hidden = true;
+        return;
+      }
+
+      function readCSSNumber(element, property, fallback) {
+        const value = getComputedStyle(element).getPropertyValue(property).trim();
+        const parsed = parseFloat(value);
+        if (Number.isNaN(parsed)) {
+          return fallback;
+        }
+        return parsed;
+      }
+
+      function getGap() {
+        const styles = getComputedStyle(track);
+        const gapValue = parseFloat(styles.columnGap || styles.gap || '0');
+        return Number.isNaN(gapValue) ? readCSSNumber(carousel, '--slide-gap', 0) : gapValue;
+      }
+
+      function hasActiveTransition() {
+        const styles = getComputedStyle(track);
+        const durations = styles.transitionDuration.split(',');
+        const delays = styles.transitionDelay.split(',');
+
+        return durations.some((durationValue, index) => {
+          const duration = parseFloat(durationValue);
+          const delay = parseFloat(delays[index] ?? delays[0] ?? '0');
+          const total = (Number.isNaN(duration) ? 0 : duration) + (Number.isNaN(delay) ? 0 : delay);
+          return total > 0;
         });
       }
 
-      function updateDots(newIndex) {
+      function refreshState() {
+        const computedVisible = Math.max(1, Math.round(readCSSNumber(carousel, '--visible-slides', 1)));
+        const pageCount = Math.max(1, totalSlides - computedVisible + 1);
+        const needsRebuild = pageCount !== state.pageCount || dotsNav.children.length !== pageCount;
+
+        state.visibleSlides = computedVisible;
+        state.pageCount = pageCount;
+
+        if (needsRebuild) {
+          dotsNav.innerHTML = '';
+          for (let index = 0; index < pageCount; index += 1) {
+            const dot = document.createElement('button');
+            dot.className = 'carousel__dot';
+            dot.type = 'button';
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+            dot.setAttribute('role', 'tab');
+            dot.dataset.index = String(index);
+            dotsNav.appendChild(dot);
+          }
+        }
+
+        if (currentIndex > state.pageCount - 1) {
+          currentIndex = state.pageCount - 1;
+        }
+
+        const controlsDisabled = state.pageCount <= 1;
+        prevButton.disabled = controlsDisabled;
+        nextButton.disabled = controlsDisabled;
+        prevButton.setAttribute('aria-disabled', controlsDisabled ? 'true' : 'false');
+        nextButton.setAttribute('aria-disabled', controlsDisabled ? 'true' : 'false');
+      }
+
+      function updateDots() {
         dotsNav.querySelectorAll('.carousel__dot').forEach((dot) => {
-          const isActive = Number(dot.dataset.index) === newIndex;
+          const isActive = Number(dot.dataset.index) === currentIndex;
           dot.setAttribute('aria-current', isActive ? 'true' : 'false');
           dot.setAttribute('tabindex', isActive ? '0' : '-1');
         });
       }
 
       function updateSlidePosition() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots(currentIndex);
-      }
-
-      function moveToSlide(newIndex) {
-        if (isTransitioning || newIndex === currentIndex || newIndex < 0 || newIndex >= totalSlides) {
+        const firstSlide = slides[0];
+        if (!firstSlide) {
           return;
         }
+        const slideWidth = firstSlide.getBoundingClientRect().width;
+        const gap = getGap();
+        const offset = currentIndex * (slideWidth + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+        updateDots();
+      }
+
+      function moveToSlide(targetIndex) {
+        if (isTransitioning) {
+          return;
+        }
+
+        refreshState();
+
+        if (state.pageCount <= 1) {
+          currentIndex = 0;
+          updateSlidePosition();
+          return;
+        }
+
+        const normalizedIndex = (targetIndex + state.pageCount) % state.pageCount;
+
+        if (normalizedIndex === currentIndex) {
+          return;
+        }
+
         isTransitioning = true;
-        currentIndex = newIndex;
+        currentIndex = normalizedIndex;
+
         requestAnimationFrame(() => {
           updateSlidePosition();
+          if (!hasActiveTransition()) {
+            isTransitioning = false;
+          }
         });
       }
 
@@ -257,17 +388,23 @@
       });
 
       prevButton.addEventListener('click', () => {
-        moveToSlide(currentIndex - 1 < 0 ? totalSlides - 1 : currentIndex - 1);
+        moveToSlide(currentIndex - 1);
       });
 
       nextButton.addEventListener('click', () => {
-        moveToSlide((currentIndex + 1) % totalSlides);
+        moveToSlide(currentIndex + 1);
       });
 
       dotsNav.addEventListener('click', (event) => {
-        if (event.target.matches('.carousel__dot')) {
-          moveToSlide(Number(event.target.dataset.index));
+        const dot = event.target.closest('.carousel__dot');
+        if (!dot) {
+          return;
         }
+        const targetIndex = Number(dot.dataset.index);
+        if (Number.isNaN(targetIndex)) {
+          return;
+        }
+        moveToSlide(targetIndex);
       });
 
       function handleKeydown(event) {
@@ -301,8 +438,17 @@
         touchStartX = null;
       }
 
-      createDots();
-      updateDots(currentIndex);
+      window.addEventListener('resize', () => {
+        const previousPageCount = state.pageCount;
+        refreshState();
+        if (previousPageCount !== state.pageCount) {
+          currentIndex = Math.min(currentIndex, state.pageCount - 1);
+        }
+        updateSlidePosition();
+      });
+
+      refreshState();
+      updateDots();
       updateSlidePosition();
 
       document.addEventListener('keydown', handleKeydown);
