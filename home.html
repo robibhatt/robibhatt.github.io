@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Robi Bhattacharjee</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1f3c88;
+      color: #fff;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 2.5vw + 1rem, 2.8rem);
+    }
+
+    main {
+      flex: 1;
+      padding: 1.5rem 1rem 3rem;
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      background: #000;
+      margin-bottom: 2rem;
+    }
+
+    .carousel__track {
+      display: flex;
+      transition: transform 0.6s ease;
+      will-change: transform;
+    }
+
+    .carousel__slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .carousel__slide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .carousel__button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      color: #1f3c88;
+      font-size: 1.75rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .carousel__button:hover,
+    .carousel__button:focus-visible {
+      background: #1f3c88;
+      color: #fff;
+      outline: none;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel__button:focus-visible {
+      box-shadow: 0 0 0 4px rgba(31, 60, 136, 0.35);
+    }
+
+    .carousel__button--prev {
+      left: 1rem;
+    }
+
+    .carousel__button--next {
+      right: 1rem;
+    }
+
+    .carousel__dots {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .carousel__dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .carousel__dot[aria-current="true"] {
+      background: #1f3c88;
+      transform: scale(1.2);
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6);
+    }
+
+    .carousel__dot:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(31, 60, 136, 0.35);
+    }
+
+    p {
+      font-size: 1.1rem;
+      text-align: center;
+      color: #333;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .carousel__track {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Robi Bhattacharjee</h1>
+  </header>
+  <main>
+    <section class="carousel" aria-label="Featured moments of Robi Bhattacharjee">
+      <div class="carousel__track" role="list">
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/01_robi_first.jpeg" loading="eager" alt="Robi Bhattacharjee smiling for the first featured photo">
+        </article>
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/02_robi_second.jpeg" loading="lazy" alt="Robi Bhattacharjee in the second featured photo">
+        </article>
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/03_robi_third.jpeg" loading="lazy" alt="Robi Bhattacharjee in the third featured photo">
+        </article>
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/04_robi_fourth.jpeg" loading="lazy" alt="Robi Bhattacharjee in the fourth featured photo">
+        </article>
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/05_robi_fifth.jpeg" loading="lazy" alt="Robi Bhattacharjee in the fifth featured photo">
+        </article>
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/06_robi_sixth.jpeg" loading="lazy" alt="Robi Bhattacharjee in the sixth featured photo">
+        </article>
+        <article class="carousel__slide" role="listitem">
+          <img src="carousel_images/07_robi_seventh.jpeg" loading="lazy" alt="Robi Bhattacharjee in the seventh featured photo">
+        </article>
+      </div>
+      <button class="carousel__button carousel__button--prev" type="button" aria-label="Show previous slide">&#10094;</button>
+      <button class="carousel__button carousel__button--next" type="button" aria-label="Show next slide">&#10095;</button>
+      <div class="carousel__dots" role="tablist" aria-label="Slide navigation"></div>
+    </section>
+
+    <p>Hi, this is a paragraph about me, Robi Bhattacharjee.</p>
+  </main>
+
+  <script>
+    (function () {
+      const carousel = document.querySelector('.carousel');
+      const track = carousel.querySelector('.carousel__track');
+      const slides = Array.from(track.children);
+      const prevButton = carousel.querySelector('.carousel__button--prev');
+      const nextButton = carousel.querySelector('.carousel__button--next');
+      const dotsNav = carousel.querySelector('.carousel__dots');
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let isTransitioning = false;
+      let touchStartX = null;
+      let touchStartTime = 0;
+
+      function createDots() {
+        slides.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.className = 'carousel__dot';
+          dot.type = 'button';
+          dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+          dot.setAttribute('role', 'tab');
+          dot.dataset.index = index;
+          dotsNav.appendChild(dot);
+        });
+      }
+
+      function updateDots(newIndex) {
+        dotsNav.querySelectorAll('.carousel__dot').forEach((dot) => {
+          const isActive = Number(dot.dataset.index) === newIndex;
+          dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+          dot.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+      }
+
+      function updateSlidePosition() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots(currentIndex);
+      }
+
+      function moveToSlide(newIndex) {
+        if (isTransitioning || newIndex === currentIndex || newIndex < 0 || newIndex >= totalSlides) {
+          return;
+        }
+        isTransitioning = true;
+        currentIndex = newIndex;
+        requestAnimationFrame(() => {
+          updateSlidePosition();
+        });
+      }
+
+      track.addEventListener('transitionend', () => {
+        isTransitioning = false;
+      });
+
+      prevButton.addEventListener('click', () => {
+        moveToSlide(currentIndex - 1 < 0 ? totalSlides - 1 : currentIndex - 1);
+      });
+
+      nextButton.addEventListener('click', () => {
+        moveToSlide((currentIndex + 1) % totalSlides);
+      });
+
+      dotsNav.addEventListener('click', (event) => {
+        if (event.target.matches('.carousel__dot')) {
+          moveToSlide(Number(event.target.dataset.index));
+        }
+      });
+
+      function handleKeydown(event) {
+        if (event.key === 'ArrowLeft') {
+          prevButton.click();
+        } else if (event.key === 'ArrowRight') {
+          nextButton.click();
+        }
+      }
+
+      function handleTouchStart(event) {
+        if (event.touches.length !== 1) return;
+        touchStartX = event.touches[0].clientX;
+        touchStartTime = performance.now();
+      }
+
+      function handleTouchEnd(event) {
+        if (touchStartX === null) return;
+        const touchEndX = event.changedTouches[0].clientX;
+        const dx = touchEndX - touchStartX;
+        const dt = performance.now() - touchStartTime;
+        const swipeThreshold = 50;
+        const timeThreshold = 500;
+        if (Math.abs(dx) > swipeThreshold && dt < timeThreshold) {
+          if (dx > 0) {
+            prevButton.click();
+          } else {
+            nextButton.click();
+          }
+        }
+        touchStartX = null;
+      }
+
+      createDots();
+      updateDots(currentIndex);
+      updateSlidePosition();
+
+      document.addEventListener('keydown', handleKeydown);
+      track.addEventListener('touchstart', handleTouchStart, { passive: true });
+      track.addEventListener('touchend', handleTouchEnd);
+    })();
+  </script>
+</body>
+</html>
