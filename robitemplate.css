@@ -115,7 +115,7 @@ img {
 }
 
 .publications-list li {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1rem;
 }
 
 .publication-row {
@@ -147,7 +147,7 @@ img {
 
 .publication-authors .fa-li {
   left: -1.75rem;
-  color: #666;
+  color: #4da3ff;
 }
 
 .publication-right {
