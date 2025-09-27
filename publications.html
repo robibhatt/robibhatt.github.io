@@ -6,56 +6,254 @@
   <title>Publications | Robi Bhattacharjee</title>
   <meta name="description" content="List of publications by Robi Bhattacharjee">
   <link rel="stylesheet" href="robitemplate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOCQHj4Xq+1Q0tRzUGmu0FK7mwH6v+t3R7u1ieqxCfXWYnf4XWUTyvgrc1jFZh/TmZbR7ZDT+xYpP4hZH6+g==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="playfair-font">
-  <center>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="index.html">Robi Bhattacharjee</a>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="publications.html">Publications</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="jiujitsu.html">Jiujitsu</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="publications-list">
-      <h1>Research</h1>
-
-      <section>
-        <h2>Preprints</h2>
-        <ul>
-          <li>Robi Bhattacharjee, Nick Rittler, and Kamalika Chaudhuri. "<a class="paper-link" href="https://arxiv.org/abs/2405.19156">Beyond Discrepancy: A Closer Look at the Theory of Distribution Shift</a>" In Submission</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Publications</h2>
-        <ul>
-          <li>Robi Bhattacharjee and Ulrike von Luxburg. "<a class="paper-link" href="https://arxiv.org/abs/2407.13281">Auditing Local Explanations is Hard.</a>" Neurips 2024</li>
-          <li>Robi Bhattacharjee, Sanjoy Dasgupta, and Kamalika Chaudhuri. "<a class="paper-link" href="https://arxiv.org/abs/2302.13181">Data-Copying in Generative Models: A Formal Framework.</a>" ICML 2023</li>
-          <li>Robi Bhattacharjee, Max Hopkins, Akash Kumar, Hantao Yu, and Kamalika Chaudhuri. "<a class="paper-link" href="https://arxiv.org/abs/2210.00635">Robust Empirical Risk Minimization with Tolerance</a>" ALT 2023</li>
-          <li>Robi Bhattacharjee, Jacob Imola, Michal Moshkovitz, and Sanjoy Dasgupta. "<a class="paper-link" href="http://arxiv.org/abs/2102.09101">Online k-means Clustering on Arbitrary Data Streams.</a>" ALT 2023</li>
-          <li>Robi Bhattacharjee and Gaurav Mahajan. "<a class="paper-link" href="https://arxiv.org/abs/2201.03806">Learning what to remember.</a>" ALT 2022</li>
-          <li>Robi Bhattacharjee and Kamalika Chaudhuri. "<a class="paper-link" href="http://arxiv.org/abs/2102.09086">Consistent Non-Parametric Methods for Maximizing Robustness.</a>" Neurips 2021</li>
-          <li>Robi Bhattacharjeee, Somesh Jha, and Kamalika Chaudhuri. "<a class="paper-link" href="https://arxiv.org/abs/2012.10794">Sample Complexity of Adversarially Robust Linear Classification on Separated Data.</a>" ICML 2021</li>
-          <li>Robi Bhattacharjee and Michal Moshkovitz. "<a class="paper-link" href="https://arxiv.org/abs/2012.14512">No-substitution k-means Clustering with Adversarial Order.</a>" ALT 2021.</li>
-          <li>Robi Bhattacharjee and Kamalika Chaudhuri. "<a class="paper-link" href="https://arxiv.org/abs/2003.06121">When are Non-Parametric Methods Robust?</a>" ICML 2020.</li>
-          <li>Robi Bhattacharjee and Sanjoy Dasgupta. "<a class="paper-link" href="https://arxiv.org/abs/1903.05347">What relations are reliably embeddable in Euclidean space?.</a>" ALT 2020.</li>
-        </ul>
-      </section>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="index.html">Robi Bhattacharjee</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="publications.html">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html#contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jiujitsu.html">Jiujitsu</a>
+        </li>
+      </ul>
     </div>
-  </center>
+  </nav>
+
+  <main class="page-container">
+    <h1 class="page-title">Publications</h1>
+
+    <section class="publications-section">
+      <h2>Published &amp; Accepted Papers</h2>
+      <ol class="publications-list" reversed start="12">
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://neurips.cc/virtual/2025/poster/116671" target="_blank" rel="noopener noreferrer">Consistency of the k<sub>n</sub>-nearest neighbor rule under adaptive sampling</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Geelon So · Sanjoy Dasgupta
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              <strong>Neurips</strong> 2025
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2503.23111" target="_blank" rel="noopener noreferrer">How to safely discard features based on aggregate SHAP values</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>R Bhattacharjee</strong> · K Frohnapfel · U von Luxburg
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              <strong>COLT</strong> 2025
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2407.13281" target="_blank" rel="noopener noreferrer">Auditing Local Explanations is Hard</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Ulrike von Luxburg
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              <strong>Neurips</strong> 2024
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2302.13181" target="_blank" rel="noopener noreferrer">Data-Copying in Generative Models: A Formal Framework</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Sanjoy Dasgupta · Kamalika Chaudhuri
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              <strong>ICML</strong> 2023
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2210.00635" target="_blank" rel="noopener noreferrer">Robust Empirical Risk Minimization with Tolerance</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Max Hopkins · Akash Kumar · Hantao Yu · Kamalika Chaudhuri
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ALT 2023
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2102.09101" target="_blank" rel="noopener noreferrer">Online k-means Clustering on Arbitrary Data Streams</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Jacob Imola · Michal Moshkovitz · Sanjoy Dasgupta
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ALT 2023
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2201.03806" target="_blank" rel="noopener noreferrer">Learning what to remember</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Gaurav Mahajan
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ALT 2022
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2102.09086" target="_blank" rel="noopener noreferrer">Consistent Non-Parametric Methods for Maximizing Robustness</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Kamalika Chaudhuri
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              Neurips 2021
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2012.10794" target="_blank" rel="noopener noreferrer">Sample Complexity of Adversarially Robust Linear Classification on Separated Data</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Somesh Jha · Kamalika Chaudhuri
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ICML 2021
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2012.14512" target="_blank" rel="noopener noreferrer">No-substitution k-means Clustering with Adversarial Order</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Michal Moshkovitz
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ALT 2021
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2003.06121" target="_blank" rel="noopener noreferrer">When are Non-Parametric Methods Robust?</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Kamalika Chaudhuri
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ICML 2020
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="publication-row">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/1903.05347" target="_blank" rel="noopener noreferrer">What relations are reliably embeddable in Euclidean space?</a>
+              <ul class="publication-authors fa-ul">
+                <li>
+                  <span class="fa-li"><i class="fa-solid fa-user-group"></i></span>
+                  <strong>Robi Bhattacharjee</strong> · Sanjoy Dasgupta
+                </li>
+              </ul>
+            </div>
+            <div class="publication-right">
+              ALT 2020
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="preprints-section">
+      <h2>Preprints</h2>
+      <ul class="preprints-list">
+        <li>
+          <div class="preprint-content">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2508.11441" target="_blank" rel="noopener noreferrer">Informative Post-Hoc Explanations Only Exist for Simple Functions</a>
+              <p class="preprint-authors">E Günther · B Szabados · R Bhattacharjee · S Bordt · U von Luxburg</p>
+            </div>
+            <div class="preprint-right">In Preparation</div>
+          </div>
+        </li>
+        <li>
+          <div class="preprint-content">
+            <div>
+              <a class="publication-title" href="https://arxiv.org/abs/2405.19156" target="_blank" rel="noopener noreferrer">Beyond Discrepancy: A Closer Look at the Theory of Distribution Shift</a>
+              <p class="preprint-authors"><strong>Robi Bhattacharjee</strong> · Nick Rittler · Kamalika Chaudhuri</p>
+            </div>
+            <div class="preprint-right">In Submission</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
