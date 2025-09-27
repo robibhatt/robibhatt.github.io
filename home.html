@@ -38,10 +38,15 @@
 
     main {
       flex: 1;
-      padding: 1.5rem 1rem 3rem;
+      padding: 1.5rem 0 3rem;
+      width: 100%;
+    }
+
+    .content {
       max-width: 960px;
       width: 100%;
       margin: 0 auto;
+      padding: 0 1rem;
     }
 
     .carousel {
@@ -50,24 +55,30 @@
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       background: #000;
-      margin-bottom: 2rem;
+      width: 100vw;
+      height: 25vh;
+      min-height: 200px;
+      margin: 0 calc(50% - 50vw) 2rem;
     }
 
     .carousel__track {
       display: flex;
       transition: transform 0.6s ease;
       will-change: transform;
+      height: 100%;
     }
 
     .carousel__slide {
       min-width: 100%;
       position: relative;
+      height: 100%;
     }
 
     .carousel__slide img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
+      object-fit: cover;
     }
 
     .carousel__button {
@@ -186,7 +197,9 @@
       <div class="carousel__dots" role="tablist" aria-label="Slide navigation"></div>
     </section>
 
-    <p>Hi, this is a paragraph about me, Robi Bhattacharjee.</p>
+    <div class="content">
+      <p>Hi, this is a paragraph about me, Robi Bhattacharjee.</p>
+    </div>
   </main>
 
   <script>
