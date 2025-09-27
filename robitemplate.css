@@ -40,6 +40,12 @@ img {
   display: block;
 }
 
+#research h2,
+#publications h2,
+#contact h2 {
+  text-align: center;
+}
+
 #scroll-padding {
   height: 95vh;
 }
