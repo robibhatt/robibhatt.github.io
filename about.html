@@ -164,6 +164,155 @@
       color: #333;
     }
 
+    .entertainment-section {
+      text-align: left;
+    }
+
+    .entertainment-section p {
+      text-align: left;
+    }
+
+    .about-cards {
+      width: 100%;
+      padding: 0 1rem 2rem;
+    }
+
+    .about-cards .content-title {
+      font-size: 1.6rem;
+      text-align: center;
+      margin: 0 0 1.5rem;
+    }
+
+    .ac-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+    }
+
+    .ac-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ac-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .ac-card-content {
+      display: grid;
+      grid-template-columns: minmax(96px, 140px) 1fr;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .ac-cover {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 2rem;
+    }
+
+    .ac-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .ac-cover:hover img,
+    .ac-cover:focus-within img {
+      transform: rotate(-10deg);
+    }
+
+    .ac-cover--emoji {
+      font-size: 2.25rem;
+    }
+
+    .ac-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ac-title {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .ac-note {
+      margin: 0;
+      padding-left: 0;
+      color: #000;
+      font-size: 1rem;
+      line-height: 1.5;
+      list-style: none;
+    }
+
+    .ac-note li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .ac-note li::before {
+      content: "\25B6";
+      position: absolute;
+      left: 0;
+      top: 0.8em;
+      transform: translateY(-50%);
+      color: #b0b0b0;
+      font-size: 0.75rem;
+    }
+
+    .ac-note li:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 640px) {
+      .about-cards {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .ac-card-content {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .ac-cover {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .ac-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .entertainment-title {
+      font-size: 1.75rem;
+      font-style: italic;
+      margin: 1.5rem 0 0.75rem;
+      text-align: left;
+    }
+
     @media (min-width: 640px) {
       .carousel {
         --visible-slides: 2.2;
@@ -240,10 +389,120 @@
     </section>
 
     <div class="content">
-      <p>Hi, this is a paragraph about me, Robi Bhattacharjee.</p>
-      <p>When I'm not doing math, you can typically find me exclaiming at my computer screen over a Starcraft/Chess tournament. I also spend some time coaching a Brazilian Jiu Jitsu class once a week. Since I moved to Germany, I have been biking around, a lot. I've also been hiking a lot. I've been trying to learn how to cook and have pretty much mastered a beef stew. I haven't been disciplined about learning German, but my wife and I watched <em>Breaking Bad</em> in German and it still slapped. Plus now I know they say "Waffe" for "gun" and "Meth" for "meth," so I'm basically good to go.</p>
+      <p>When I'm not doing math, you can typically find me exclaiming at my computer screen over a Starcraft/chess tournament. I also spend some time coaching a Brazilian Jiu Jitsu class once a week. Since I moved to Germany, I have been biking around, a lot. I've also been hiking a lot. I've been trying to learn how to cook and have pretty much mastered a beef stew. I haven't been disciplined about learning German, but my wife and I watched <em>Breaking Bad</em> in German and it still slapped. Plus now I know they say "Waffe" for "gun" and "Meth" for "meth," so I'm basically good to go.</p>
     </div>
-  </div>
+
+    <section class="about-cards" id="interests" aria-labelledby="about-interests-heading">
+      <div class="content">
+        <h2 class="content-title" id="about-interests-heading">Currently on My Radar</h2>
+        <div class="ac-grid" role="list">
+          <article class="ac-card" role="listitem">
+            <header class="ac-card-header">
+              <h3 class="ac-title">Books</h3>
+            </header>
+            <div class="ac-card-content">
+              <div class="ac-cover">
+                <img src="fun_content/pachinko.jpeg" alt="Cover of Pachinko by Min Jin Lee">
+              </div>
+              <div class="ac-body">
+                <ul class="ac-note">
+                  <li><strong>Pachinko</strong> by Min Jin Lee</li>
+                  <li><strong>Yellowface</strong> by R. F. Kuang</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <header class="ac-card-header">
+              <h3 class="ac-title">Movies</h3>
+            </header>
+            <div class="ac-card-content">
+              <div class="ac-cover">
+                <img src="fun_content/arrival.jpeg" alt="Poster for the film Arrival">
+              </div>
+              <div class="ac-body">
+                <ul class="ac-note">
+                  <li><strong>Arrival</strong></li>
+                  <li><strong>Inglourious Basterds</strong></li>
+                  <li><strong>Midnight in Paris</strong></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <header class="ac-card-header">
+              <h3 class="ac-title">Animals</h3>
+            </header>
+            <div class="ac-card-content">
+              <div class="ac-cover">
+                <img src="fun_content/tiger.jpeg" alt="A tiger standing in tall grass">
+              </div>
+              <div class="ac-body">
+                <ul class="ac-note">
+                  <li><strong>Tigers</strong> and, more broadly, most land mammalian carnivores</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <header class="ac-card-header">
+              <h3 class="ac-title">Games</h3>
+            </header>
+            <div class="ac-card-content">
+              <div class="ac-cover">
+                <img src="fun_content/hades.jpeg" alt="Poster art for the video game Hades">
+              </div>
+              <div class="ac-body">
+                <ul class="ac-note">
+                  <li><strong>Baldur’s Gate 3</strong></li>
+                  <li><strong>Divinity: Original Sin 2</strong></li>
+                  <li><strong>Hades I &amp; II</strong></li>
+                  <li><strong>StarCraft I &amp; II</strong></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <header class="ac-card-header">
+              <h3 class="ac-title">Sports to Play</h3>
+            </header>
+            <div class="ac-card-content">
+              <div class="ac-cover">
+                <img src="fun_content/basketball.jpeg" alt="An orange basketball resting on an outdoor court">
+              </div>
+              <div class="ac-body">
+                <ul class="ac-note">
+                  <li><strong>Brazilian Jiu-Jitsu</strong></li>
+                  <li><strong>Bouldering</strong></li>
+                  <li><strong>Basketball</strong></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <header class="ac-card-header">
+              <h3 class="ac-title">Sports to Watch</h3>
+            </header>
+            <div class="ac-card-content">
+              <div class="ac-cover">
+                <img src="fun_content/messi.jpeg" alt="Lionel Messi celebrating a goal">
+              </div>
+              <div class="ac-body">
+                <ul class="ac-note">
+                  <li><strong>MMA</strong></li>
+                  <li><strong>Soccer</strong> (only during the World Cup)</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
   <script>
     (function () {
