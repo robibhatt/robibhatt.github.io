@@ -10,22 +10,22 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body class="playfair-font">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-    <a class="navbar-brand" href="index.html">Robi Bhattacharjee</a>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="publications.html">Publications</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="cv.html">CV</a>
-        </li>
-      </ul>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="index.html">Robi Bhattacharjee</a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+        <span aria-hidden="true">&#9776;</span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary" data-visible="false">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="publications.html">Publications</a></li>
+          <li><a class="site-nav__link" href="cv.html" aria-current="page">CV</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <main class="page-container cv-page">
     <header class="cv-header">
@@ -255,5 +255,54 @@
       </ul>
     </section>
   </main>
+  <script>
+    (function () {
+      const navToggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('primary-navigation');
+
+      if (!navToggle || !nav) {
+        return;
+      }
+
+      const openMenu = () => {
+        nav.dataset.visible = 'true';
+        navToggle.setAttribute('aria-expanded', 'true');
+      };
+
+      const closeMenu = () => {
+        nav.dataset.visible = 'false';
+        navToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      nav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            closeMenu();
+          }
+        });
+      });
+
+      const handleResize = () => {
+        if (window.innerWidth >= 768) {
+          nav.dataset.visible = 'true';
+          navToggle.setAttribute('aria-expanded', 'false');
+        } else if (navToggle.getAttribute('aria-expanded') === 'false') {
+          nav.dataset.visible = 'false';
+        }
+      };
+
+      handleResize();
+      window.addEventListener('resize', handleResize);
+    })();
+  </script>
 </body>
 </html>
