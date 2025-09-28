@@ -185,23 +185,24 @@
 
     .ac-grid {
       display: grid;
-      gap: 1rem;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
     }
 
     .ac-card {
-      background: rgba(255, 255, 255, 0.85);
+      background: #fff;
       border-radius: 14px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      padding: 1rem;
+      padding: 1.25rem;
       display: grid;
-      grid-template-columns: minmax(72px, 110px) 1fr;
+      grid-template-columns: minmax(96px, 140px) 1fr;
       gap: 1rem;
       align-items: center;
     }
 
     @media (prefers-color-scheme: dark) {
       .ac-card {
-        background: rgba(34, 34, 34, 0.9);
+        background: rgba(34, 34, 34, 0.92);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
       }
     }
@@ -233,47 +234,22 @@
     .ac-body {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .ac-heading {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
       gap: 0.75rem;
     }
 
     .ac-title {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       margin: 0;
-    }
-
-    .ac-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      background: #e0ecff;
-      color: #1f3c88;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
     }
 
     .ac-note {
       margin: 0;
       color: #4a4a4a;
-      font-size: 0.95rem;
-      line-height: 1.4;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     @media (prefers-color-scheme: dark) {
-      .ac-chip {
-        background: rgba(124, 181, 255, 0.2);
-        color: #9cc7ff;
-      }
-
       .ac-note {
         color: #d3d7dd;
       }
@@ -293,10 +269,11 @@
       .ac-cover {
         aspect-ratio: 16 / 9;
       }
+    }
 
-      .ac-heading {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (min-width: 768px) {
+      .ac-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -392,79 +369,61 @@
         <div class="ac-grid" role="list">
           <article class="ac-card" role="listitem">
             <div class="ac-cover">
-              <img src="https://covers.openlibrary.org/b/isbn/9781455563920-L.jpg" alt="Book cover of Pachinko by Min Jin Lee">
+              <img src="https://covers.openlibrary.org/b/isbn/9781455563920-L.jpg" alt="Cover of Pachinko by Min Jin Lee">
             </div>
             <div class="ac-body">
-              <div class="ac-heading">
-                <h3 class="ac-title">Pachinko</h3>
-                <span class="ac-chip" aria-label="Status: Reading">Reading</span>
-              </div>
-              <p class="ac-note">Min Jin Lee's sweeping family saga that I revisit for its tenderness and grit.</p>
-            </div>
-          </article>
-
-          <article class="ac-card" role="listitem">
-            <div class="ac-cover ac-cover--emoji" role="img" aria-label="Book placeholder">
-              📚
-            </div>
-            <div class="ac-body">
-              <div class="ac-heading">
-                <h3 class="ac-title">Yellowface</h3>
-                <span class="ac-chip" aria-label="Status: Reading">Reading</span>
-              </div>
-              <p class="ac-note">R.F. Kuang's razor-sharp satire on ambition that keeps me cringing and cheering.</p>
+              <h3 class="ac-title">Books</h3>
+              <p class="ac-note"><strong>Pachinko</strong> by Min Jin Lee and <strong>Yellowface</strong> by R. F. Kuang.</p>
             </div>
           </article>
 
           <article class="ac-card" role="listitem">
             <div class="ac-cover">
-              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5vm2.webp" alt="Key art for Baldur's Gate 3 video game">
+              <img src="https://image.tmdb.org/t/p/w342/xGUOfDHmfyaBv6ARynsUe3lsmaB.jpg" alt="Poster for the film Arrival">
             </div>
             <div class="ac-body">
-              <div class="ac-heading">
-                <h3 class="ac-title">Baldur's Gate 3</h3>
-                <span class="ac-chip" aria-label="Status: Playing">Playing</span>
-              </div>
-              <p class="ac-note">Tactical chaos with just enough heart to make every dice roll feel personal.</p>
-            </div>
-          </article>
-
-          <article class="ac-card" role="listitem">
-            <div class="ac-cover ac-cover--emoji" role="img" aria-label="Game placeholder">
-              🔥
-            </div>
-            <div class="ac-body">
-              <div class="ac-heading">
-                <h3 class="ac-title">Hades II Early Access</h3>
-                <span class="ac-chip" aria-label="Status: Playing">Playing</span>
-              </div>
-              <p class="ac-note">Speed-running rogue-lite bliss and perfecting combos between coaching sessions.</p>
+              <h3 class="ac-title">Movies</h3>
+              <p class="ac-note"><strong>Arrival</strong>, <strong>Inglourious Basterds</strong>, and <strong>Midnight in Paris</strong>.</p>
             </div>
           </article>
 
           <article class="ac-card" role="listitem">
             <div class="ac-cover">
-              <img src="https://image.tmdb.org/t/p/w300//xGUOfDHmfyaBv6ARynsUe3lsmaB.jpg" alt="Poster for the film Arrival">
+              <img src="https://images.unsplash.com/photo-1598387577962-1d91e4bc3cda?auto=format&fit=crop&w=500&q=80" alt="A tiger standing in tall grass">
             </div>
             <div class="ac-body">
-              <div class="ac-heading">
-                <h3 class="ac-title">Arrival</h3>
-                <span class="ac-chip" aria-label="Status: Watching">Watching</span>
-              </div>
-              <p class="ac-note">A cerebral sci-fi rewatch whenever I want language puzzles and quiet wonder.</p>
+              <h3 class="ac-title">Animals</h3>
+              <p class="ac-note"><strong>Tigers</strong> and, more broadly, most land mammalian carnivores.</p>
             </div>
           </article>
 
           <article class="ac-card" role="listitem">
-            <div class="ac-cover ac-cover--emoji" role="img" aria-label="Training placeholder">
-              🥋
+            <div class="ac-cover">
+              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6azr.webp" alt="Poster art for the video game Hades">
             </div>
             <div class="ac-body">
-              <div class="ac-heading">
-                <h3 class="ac-title">Brazilian Jiu Jitsu</h3>
-                <span class="ac-chip" aria-label="Status: Doing">Doing</span>
-              </div>
-              <p class="ac-note">Coaching class keeps me grounded, humbled, and a little bruised in the best way.</p>
+              <h3 class="ac-title">Games</h3>
+              <p class="ac-note"><strong>Baldur’s Gate 3</strong>; <strong>Divinity: Original Sin 2</strong>; <strong>Hades I &amp; II</strong>; <strong>StarCraft I &amp; II</strong>.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover">
+              <img src="https://images.unsplash.com/photo-1516009081684-b4230e13ae8d?auto=format&fit=crop&w=500&q=80" alt="An orange basketball resting on an outdoor court">
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">Sports to Play</h3>
+              <p class="ac-note"><strong>Brazilian Jiu-Jitsu</strong>, <strong>bouldering</strong>, and <strong>basketball</strong>.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover">
+              <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=500&q=80" alt="Lionel Messi celebrating a goal">
+            </div>
+            <div class="ac-body">
+              <h3 class="ac-title">Sports to Watch</h3>
+              <p class="ac-note"><strong>MMA</strong> and <strong>soccer</strong> (only during the World Cup).</p>
             </div>
           </article>
         </div>
