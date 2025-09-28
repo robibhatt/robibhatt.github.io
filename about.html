@@ -211,7 +211,7 @@
       display: grid;
       grid-template-columns: minmax(96px, 140px) 1fr;
       gap: 1rem;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .ac-cover {
@@ -251,15 +251,19 @@
 
     .ac-note {
       margin: 0;
-      color: #4a4a4a;
+      padding-left: 1.25rem;
+      color: #000;
       font-size: 1rem;
       line-height: 1.5;
+      list-style: disc;
     }
 
-    @media (prefers-color-scheme: dark) {
-      .ac-note {
-        color: #d3d7dd;
-      }
+    .ac-note li {
+      margin-bottom: 0.25rem;
+    }
+
+    .ac-note li:last-child {
+      margin-bottom: 0;
     }
 
     @media (max-width: 640px) {
@@ -383,7 +387,10 @@
                 <img src="fun_content/pachinko.jpeg" alt="Cover of Pachinko by Min Jin Lee">
               </div>
               <div class="ac-body">
-                <p class="ac-note"><strong>Pachinko</strong> by Min Jin Lee and <strong>Yellowface</strong> by R. F. Kuang.</p>
+                <ul class="ac-note">
+                  <li><strong>Pachinko</strong> by Min Jin Lee</li>
+                  <li><strong>Yellowface</strong> by R. F. Kuang</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -397,7 +404,11 @@
                 <img src="fun_content/arrival.jpeg" alt="Poster for the film Arrival">
               </div>
               <div class="ac-body">
-                <p class="ac-note"><strong>Arrival</strong>, <strong>Inglourious Basterds</strong>, and <strong>Midnight in Paris</strong>.</p>
+                <ul class="ac-note">
+                  <li><strong>Arrival</strong></li>
+                  <li><strong>Inglourious Basterds</strong></li>
+                  <li><strong>Midnight in Paris</strong></li>
+                </ul>
               </div>
             </div>
           </article>
@@ -411,7 +422,9 @@
                 <img src="fun_content/tiger.jpeg" alt="A tiger standing in tall grass">
               </div>
               <div class="ac-body">
-                <p class="ac-note"><strong>Tigers</strong> and, more broadly, most land mammalian carnivores.</p>
+                <ul class="ac-note">
+                  <li><strong>Tigers</strong> and, more broadly, most land mammalian carnivores</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -425,7 +438,12 @@
                 <img src="fun_content/hades.jpeg" alt="Poster art for the video game Hades">
               </div>
               <div class="ac-body">
-                <p class="ac-note"><strong>Baldur’s Gate 3</strong>; <strong>Divinity: Original Sin 2</strong>; <strong>Hades I &amp; II</strong>; <strong>StarCraft I &amp; II</strong>.</p>
+                <ul class="ac-note">
+                  <li><strong>Baldur’s Gate 3</strong></li>
+                  <li><strong>Divinity: Original Sin 2</strong></li>
+                  <li><strong>Hades I &amp; II</strong></li>
+                  <li><strong>StarCraft I &amp; II</strong></li>
+                </ul>
               </div>
             </div>
           </article>
@@ -439,7 +457,11 @@
                 <img src="fun_content/basketball.jpeg" alt="An orange basketball resting on an outdoor court">
               </div>
               <div class="ac-body">
-                <p class="ac-note"><strong>Brazilian Jiu-Jitsu</strong>, <strong>bouldering</strong>, and <strong>basketball</strong>.</p>
+                <ul class="ac-note">
+                  <li><strong>Brazilian Jiu-Jitsu</strong></li>
+                  <li><strong>Bouldering</strong></li>
+                  <li><strong>Basketball</strong></li>
+                </ul>
               </div>
             </div>
           </article>
@@ -453,7 +475,10 @@
                 <img src="fun_content/messi.jpeg" alt="Lionel Messi celebrating a goal">
               </div>
               <div class="ac-body">
-                <p class="ac-note"><strong>MMA</strong> and <strong>soccer</strong> (only during the World Cup).</p>
+                <ul class="ac-note">
+                  <li><strong>MMA</strong></li>
+                  <li><strong>Soccer</strong> (only during the World Cup)</li>
+                </ul>
               </div>
             </div>
           </article>
