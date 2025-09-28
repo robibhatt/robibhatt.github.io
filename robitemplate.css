@@ -78,7 +78,8 @@ body {
 .site-nav__link {
   color: #6b6b6b;
   text-decoration: none;
-  font-size: calc(1.5rem - 4pt);
+  font-size: calc(1.5rem - 2pt);
+
 }
 
 .site-nav__link:focus-visible,
