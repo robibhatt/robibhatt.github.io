@@ -172,6 +172,134 @@
       text-align: left;
     }
 
+    .about-cards {
+      width: 100%;
+      padding: 0 1rem 2rem;
+    }
+
+    .about-cards .content-title {
+      font-size: 1.6rem;
+      text-align: center;
+      margin: 0 0 1.5rem;
+    }
+
+    .ac-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .ac-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: minmax(72px, 110px) 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ac-card {
+        background: rgba(34, 34, 34, 0.9);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .ac-cover {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #f2f4f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 2rem;
+    }
+
+    .ac-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ac-cover--emoji {
+      font-size: 2.25rem;
+    }
+
+    .ac-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .ac-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .ac-title {
+      font-size: 1.15rem;
+      margin: 0;
+    }
+
+    .ac-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: #e0ecff;
+      color: #1f3c88;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .ac-note {
+      margin: 0;
+      color: #4a4a4a;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .ac-chip {
+        background: rgba(124, 181, 255, 0.2);
+        color: #9cc7ff;
+      }
+
+      .ac-note {
+        color: #d3d7dd;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-cards {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .ac-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .ac-cover {
+        aspect-ratio: 16 / 9;
+      }
+
+      .ac-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
     .entertainment-title {
       font-size: 1.75rem;
       font-style: italic;
@@ -257,6 +385,91 @@
     <div class="content">
       <p>When I'm not doing math, you can typically find me exclaiming at my computer screen over a Starcraft/chess tournament. I also spend some time coaching a Brazilian Jiu Jitsu class once a week. Since I moved to Germany, I have been biking around, a lot. I've also been hiking a lot. I've been trying to learn how to cook and have pretty much mastered a beef stew. I haven't been disciplined about learning German, but my wife and I watched <em>Breaking Bad</em> in German and it still slapped. Plus now I know they say "Waffe" for "gun" and "Meth" for "meth," so I'm basically good to go.</p>
     </div>
+
+    <section class="about-cards" id="interests" aria-labelledby="about-interests-heading">
+      <div class="content">
+        <h2 class="content-title" id="about-interests-heading">Currently on My Radar</h2>
+        <div class="ac-grid" role="list">
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover">
+              <img src="https://covers.openlibrary.org/b/isbn/9781455563920-L.jpg" alt="Book cover of Pachinko by Min Jin Lee">
+            </div>
+            <div class="ac-body">
+              <div class="ac-heading">
+                <h3 class="ac-title">Pachinko</h3>
+                <span class="ac-chip" aria-label="Status: Reading">Reading</span>
+              </div>
+              <p class="ac-note">Min Jin Lee's sweeping family saga that I revisit for its tenderness and grit.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover ac-cover--emoji" role="img" aria-label="Book placeholder">
+              📚
+            </div>
+            <div class="ac-body">
+              <div class="ac-heading">
+                <h3 class="ac-title">Yellowface</h3>
+                <span class="ac-chip" aria-label="Status: Reading">Reading</span>
+              </div>
+              <p class="ac-note">R.F. Kuang's razor-sharp satire on ambition that keeps me cringing and cheering.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover">
+              <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5vm2.webp" alt="Key art for Baldur's Gate 3 video game">
+            </div>
+            <div class="ac-body">
+              <div class="ac-heading">
+                <h3 class="ac-title">Baldur's Gate 3</h3>
+                <span class="ac-chip" aria-label="Status: Playing">Playing</span>
+              </div>
+              <p class="ac-note">Tactical chaos with just enough heart to make every dice roll feel personal.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover ac-cover--emoji" role="img" aria-label="Game placeholder">
+              🔥
+            </div>
+            <div class="ac-body">
+              <div class="ac-heading">
+                <h3 class="ac-title">Hades II Early Access</h3>
+                <span class="ac-chip" aria-label="Status: Playing">Playing</span>
+              </div>
+              <p class="ac-note">Speed-running rogue-lite bliss and perfecting combos between coaching sessions.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover">
+              <img src="https://image.tmdb.org/t/p/w300//xGUOfDHmfyaBv6ARynsUe3lsmaB.jpg" alt="Poster for the film Arrival">
+            </div>
+            <div class="ac-body">
+              <div class="ac-heading">
+                <h3 class="ac-title">Arrival</h3>
+                <span class="ac-chip" aria-label="Status: Watching">Watching</span>
+              </div>
+              <p class="ac-note">A cerebral sci-fi rewatch whenever I want language puzzles and quiet wonder.</p>
+            </div>
+          </article>
+
+          <article class="ac-card" role="listitem">
+            <div class="ac-cover ac-cover--emoji" role="img" aria-label="Training placeholder">
+              🥋
+            </div>
+            <div class="ac-body">
+              <div class="ac-heading">
+                <h3 class="ac-title">Brazilian Jiu Jitsu</h3>
+                <span class="ac-chip" aria-label="Status: Doing">Doing</span>
+              </div>
+              <p class="ac-note">Coaching class keeps me grounded, humbled, and a little bruised in the best way.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <div class="content entertainment-section">
       <h3 class="entertainment-title"><span>Entertainment&#8212;</span></h3>
