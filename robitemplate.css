@@ -316,6 +316,10 @@ img {
   color: #333;
 }
 
+.preprint-substatus {
+  font-size: 0.95rem;
+}
+
 .preprint-authors {
   margin: 0.35rem 0 0;
   font-size: 0.95rem;
