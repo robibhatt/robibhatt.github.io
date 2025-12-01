@@ -311,9 +311,12 @@ img {
 }
 
 .preprint-right {
-  text-align: left;
+  text-align: center;
   justify-self: start;
   color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .preprint-substatus {
@@ -335,7 +338,7 @@ img {
 
   .publication-right,
   .preprint-right {
-    text-align: left;
+    text-align: center;
   }
 }
 
