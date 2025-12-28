@@ -42,15 +42,13 @@
       --slide-gap: 0.5rem;
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       background: transparent;
       width: 100%;
       max-width: none;
       height: 60vh;
       min-height: 260px;
-      margin: 0 0 2.5rem;
-      padding: 0.75rem 0;
+      margin: 0 0 1.5rem;
+      padding: 0;
     }
 
     .carousel__track {
@@ -66,27 +64,20 @@
     }
 
     .carousel__slide {
-      flex: 0 0 calc(
-        (100% - (var(--visible-slides) - 1) * var(--slide-gap)) /
-        var(--visible-slides)
-      );
+      flex: 0 0 auto;
       position: relative;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       background: transparent;
-      border-radius: 10px;
       overflow: hidden;
     }
 
     .carousel__slide img {
       height: 100%;
       width: auto;
-      max-width: 100%;
       display: block;
-      object-fit: contain;
-      object-position: center;
     }
 
     .carousel__button {
@@ -628,11 +619,17 @@
           return;
         }
 
-        const slideWidth = referenceSlide.getBoundingClientRect().width;
         const gap = getGap();
         const carouselWidth = carousel.getBoundingClientRect().width;
         const paddingLeft = readCSSNumber(track, 'padding-left', 0);
-        const baseOffset = currentIndex * (slideWidth + gap) + paddingLeft;
+
+        // Calculate offset by summing widths of all previous slides
+        let baseOffset = paddingLeft;
+        for (let i = 0; i < currentIndex; i++) {
+          baseOffset += slideElements[i].getBoundingClientRect().width + gap;
+        }
+
+        const slideWidth = referenceSlide.getBoundingClientRect().width;
         const slideCenter = baseOffset + slideWidth / 2;
         const translate = slideCenter - carouselWidth / 2;
 
