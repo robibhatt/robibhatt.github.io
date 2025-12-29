@@ -15,6 +15,10 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       line-height: 1.6;
@@ -24,6 +28,7 @@
     .about-page {
       padding: 1.5rem 0 3rem;
       width: 100%;
+      max-width: 100vw;
     }
 
     .content {
@@ -77,6 +82,7 @@
     .carousel__slide img {
       height: 100%;
       width: auto;
+      min-width: 250px;
       display: block;
     }
 
@@ -84,30 +90,23 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.8);
+      background: transparent;
       border: none;
-      color: #1f3c88;
+      color: rgba(0, 0, 0, 0.4);
       font-size: 1.75rem;
-      width: 2.75rem;
-      height: 2.75rem;
-      border-radius: 50%;
+      padding: 0.5rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: color 0.2s ease;
     }
 
     .carousel__button:hover,
     .carousel__button:focus-visible {
-      background: #1f3c88;
-      color: #fff;
+      color: rgba(0, 0, 0, 0.7);
       outline: none;
-      transform: translateY(-50%) scale(1.05);
     }
 
     .carousel__button:focus-visible {
-      box-shadow: 0 0 0 4px rgba(31, 60, 136, 0.35);
+      box-shadow: none;
     }
 
     .carousel__button--prev {
@@ -128,25 +127,29 @@
     }
 
     .carousel__dot {
-      width: 0.75rem;
-      height: 0.75rem;
+      width: 0.64rem;
+      height: 0.64rem;
       border-radius: 50%;
-      background: #d0d5db;
-      border: 0;
+      background: #fff;
+      border: none;
+      outline: none;
+      box-shadow: none;
       padding: 0;
       cursor: pointer;
       transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .carousel__dot[aria-current="true"] {
-      background: #7cb5ff;
+      background: #a8d4ff;
       transform: scale(1.2);
-      box-shadow: 0 0 0 4px rgba(124, 181, 255, 0.35);
+      border: none;
+      outline: none;
+      box-shadow: none;
     }
 
     .carousel__dot:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 4px rgba(31, 60, 136, 0.35);
+      box-shadow: none;
     }
 
     p {
@@ -182,112 +185,89 @@
 
     .ac-card {
       background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       padding: 1.25rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      border: 2px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ac-card:hover {
+      background: #f0f7ff;
+      border-color: #7cb5ff;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     }
 
     .ac-card-header {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .ac-card-content {
-      display: grid;
-      grid-template-columns: minmax(96px, 140px) 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
-      align-items: flex-start;
     }
 
     .ac-cover {
       width: 100%;
-      aspect-ratio: 3 / 4;
-      border-radius: 10px;
+      border-radius: 8px;
       overflow: hidden;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #555;
-      font-size: 2rem;
+      background: #f5f5f5;
     }
 
     .ac-cover img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .ac-cover:hover img,
-    .ac-cover:focus-within img {
-      transform: rotate(-10deg);
-    }
-
-    .ac-cover--emoji {
-      font-size: 2.25rem;
     }
 
     .ac-body {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.5rem;
     }
 
     .ac-title {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       margin: 0;
+      font-weight: 600;
     }
 
     .ac-note {
       margin: 0;
       padding-left: 0;
-      color: #000;
-      font-size: 1rem;
-      line-height: 1.5;
+      color: #444;
+      font-size: 0.95rem;
+      line-height: 1.6;
       list-style: none;
     }
 
     .ac-note li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .ac-note li::before {
-      content: "\25B6";
-      position: absolute;
-      left: 0;
-      top: 0.8em;
-      transform: translateY(-50%);
-      color: #b0b0b0;
-      font-size: 0.75rem;
+      padding: 0.2rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .ac-note li:last-child {
-      margin-bottom: 0;
+      border-bottom: none;
     }
 
     @media (max-width: 640px) {
       .about-cards {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
       }
 
-      .ac-card-content {
-        grid-template-columns: 1fr;
-        text-align: left;
+      .ac-card {
+        padding: 1rem;
       }
 
-      .ac-cover {
-        aspect-ratio: 16 / 9;
+      .ac-note {
+        font-size: 0.9rem;
       }
     }
 
@@ -295,6 +275,17 @@
       .ac-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+    }
+
+    .attribution {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 1.5rem;
+    }
+
+    .attribution a {
+      color: #666;
     }
 
     .entertainment-title {
@@ -393,7 +384,7 @@
             </header>
             <div class="ac-card-content">
               <div class="ac-cover">
-                <img src="fun_content/pachinko.jpeg" alt="Cover of Pachinko by Min Jin Lee">
+                <img src="fun_content/reading.svg" alt="Illustration of a person reading a book">
               </div>
               <div class="ac-body">
                 <ul class="ac-note">
@@ -410,13 +401,13 @@
             </header>
             <div class="ac-card-content">
               <div class="ac-cover">
-                <img src="fun_content/arrival.jpeg" alt="Poster for the film Arrival">
+                <img src="fun_content/film-rolls.svg" alt="Illustration of film rolls">
               </div>
               <div class="ac-body">
                 <ul class="ac-note">
-                  <li><strong>Arrival</strong></li>
-                  <li><strong>Inglourious Basterds</strong></li>
-                  <li><strong>Midnight in Paris</strong></li>
+                  <li><strong>Arrival</strong> dir. by Denis Villeneuve</li>
+                  <li><strong>Inglourious Basterds</strong> dir. by Quentin Tarantino</li>
+                  <li><strong>Knives Out</strong> dir. by Rian Johnson</li>
                 </ul>
               </div>
             </div>
@@ -428,11 +419,12 @@
             </header>
             <div class="ac-card-content">
               <div class="ac-cover">
-                <img src="fun_content/tiger.jpeg" alt="A tiger standing in tall grass">
+                <img src="fun_content/zoo.svg" alt="Illustration of zoo animals">
               </div>
               <div class="ac-body">
                 <ul class="ac-note">
-                  <li><strong>Tigers</strong> and, more broadly, most land mammalian carnivores</li>
+                  <li><strong>Tigers</strong></li>
+                  <li>and, more broadly, most land mammalian carnivores</li>
                 </ul>
               </div>
             </div>
@@ -444,7 +436,7 @@
             </header>
             <div class="ac-card-content">
               <div class="ac-cover">
-                <img src="fun_content/hades.jpeg" alt="Poster art for the video game Hades">
+                <img src="fun_content/video-games.svg" alt="Illustration of a video game developer">
               </div>
               <div class="ac-body">
                 <ul class="ac-note">
@@ -463,7 +455,7 @@
             </header>
             <div class="ac-card-content">
               <div class="ac-cover">
-                <img src="fun_content/basketball.jpeg" alt="An orange basketball resting on an outdoor court">
+                <img src="fun_content/jiu-jitsu.svg" alt="Illustration of jiu-jitsu practice">
               </div>
               <div class="ac-body">
                 <ul class="ac-note">
@@ -481,7 +473,7 @@
             </header>
             <div class="ac-card-content">
               <div class="ac-cover">
-                <img src="fun_content/messi.jpeg" alt="Lionel Messi celebrating a goal">
+                <img src="fun_content/boxing.svg" alt="Illustration of boxing">
               </div>
               <div class="ac-body">
                 <ul class="ac-note">
@@ -492,6 +484,7 @@
             </div>
           </article>
         </div>
+        <p class="attribution">Illustrations by <a href="https://storyset.com" target="_blank" rel="noopener">Storyset</a></p>
       </div>
     </section>
 
