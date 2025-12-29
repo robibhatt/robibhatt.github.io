@@ -15,14 +15,11 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      overflow-x: hidden;
-    }
-
     body {
       margin: 0;
       line-height: 1.6;
       color: #222;
+      overflow-x: clip;
     }
 
     .about-page {
@@ -62,6 +59,7 @@
       transition: transform 0.6s ease;
       will-change: transform;
       height: 100%;
+      touch-action: pan-y pinch-zoom;
     }
 
     .carousel__track--no-transition {
@@ -743,8 +741,8 @@
         const touchEndX = event.changedTouches[0].clientX;
         const dx = touchEndX - touchStartX;
         const dt = performance.now() - touchStartTime;
-        const swipeThreshold = 50;
-        const timeThreshold = 500;
+        const swipeThreshold = 30;
+        const timeThreshold = 800;
         if (Math.abs(dx) > swipeThreshold && dt < timeThreshold) {
           if (dx > 0) {
             moveBy(-1);
