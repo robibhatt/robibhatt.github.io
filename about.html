@@ -53,13 +53,16 @@
       padding: 0;
     }
 
+    .carousel {
+      touch-action: pan-y;
+    }
+
     .carousel__track {
       display: flex;
       gap: var(--slide-gap);
       transition: transform 0.6s ease;
       will-change: transform;
       height: 100%;
-      touch-action: pan-y pinch-zoom;
     }
 
     .carousel__track--no-transition {
@@ -736,13 +739,23 @@
         touchStartTime = performance.now();
       }
 
+      function handleTouchMove(event) {
+        if (touchStartX === null) return;
+        const touchCurrentX = event.touches[0].clientX;
+        const dx = touchCurrentX - touchStartX;
+        // If horizontal swipe is detected, prevent vertical scrolling
+        if (Math.abs(dx) > 10) {
+          event.preventDefault();
+        }
+      }
+
       function handleTouchEnd(event) {
         if (touchStartX === null) return;
         const touchEndX = event.changedTouches[0].clientX;
         const dx = touchEndX - touchStartX;
         const dt = performance.now() - touchStartTime;
-        const swipeThreshold = 30;
-        const timeThreshold = 800;
+        const swipeThreshold = 20;
+        const timeThreshold = 1000;
         if (Math.abs(dx) > swipeThreshold && dt < timeThreshold) {
           if (dx > 0) {
             moveBy(-1);
@@ -763,8 +776,9 @@
       normalizePosition(true);
 
       document.addEventListener('keydown', handleKeydown);
-      track.addEventListener('touchstart', handleTouchStart, { passive: true });
-      track.addEventListener('touchend', handleTouchEnd);
+      carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+      carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
+      carousel.addEventListener('touchend', handleTouchEnd);
     })();
   </script>
   <script>
